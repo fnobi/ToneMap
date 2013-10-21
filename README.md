@@ -23,7 +23,7 @@ bower install ToneMap
 ```
 
 ### from github
-```
+```javascript
 git clone git://github.com/fnobi/ToneMap.git
 ```
 
@@ -43,7 +43,7 @@ function init () {
     function initTouchEvent () {
         var el = document.getElementById('wrapper');
 
-        var interval = 100;
+        var interval = 50;
         var playbackRate = 1.0;
 
         var loop;
@@ -59,13 +59,11 @@ function init () {
             clearInterval(loop);
         }
 
-        el.addEventListener('mousedown', function () {
-            startSound();
-        }, false);
+        el.addEventListener('mousedown', startSound, false);
+        el.addEventListener('mouseup', stopSound, false);
 
-        el.addEventListener('mouseup', function () {
-            stopSound();
-        }, false);
+        el.addEventListener('touchstart', startSound, false);
+        el.addEventListener('touchend', stopSound, false);
     };
 }
 
