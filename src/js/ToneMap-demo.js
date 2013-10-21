@@ -13,8 +13,8 @@ function init () {
         var el = document.getElementById('wrapper');
 
         var interval = 50;
-        var playbackRate = 1.0;
 
+        var distance = 0;
         var prevPos;
 
         var loop;
@@ -22,9 +22,13 @@ function init () {
             e.preventDefault();
 
             loop = setInterval(function () {
+                var playbackRate = Math.max(distance / 50, 0.1);
+
                 toneMap.play('tap', {
                     playbackRate: playbackRate
                 });
+
+                distance = 0;
             }, interval);
 
             prevPos = [
@@ -57,7 +61,7 @@ function init () {
             var dy = pos[1] - prevPos[1];
             var d = Math.sqrt(dx * dx + dy * dy);
 
-            playbackRate = Math.max(d / 5, 0.1);
+            distance += d;
 
             prevPos = pos;
         }
