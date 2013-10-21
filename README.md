@@ -27,7 +27,7 @@ bower install ToneMap
 git clone git://github.com/fnobi/ToneMap.git
 ```
 
-## usage
+## demo (http://tonemap.fnobi.com/)
 ```
 function init () {
     // init toneMap
@@ -50,6 +50,8 @@ function init () {
 
         var loop;
         function startSound (e) {
+            e.preventDefault();
+
             loop = setInterval(function () {
                 toneMap.play('tap', {
                     playbackRate: playbackRate
@@ -62,13 +64,17 @@ function init () {
             ];
         }
 
-        function stopSound () {
+        function stopSound (e) {
+            e.preventDefault();
+
             clearInterval(loop);
             loop = null;
             prevPos = [];
         }
 
         function processPointer (e) {
+            e.preventDefault();
+
             if (!loop) {
                 return;
             }
