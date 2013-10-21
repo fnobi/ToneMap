@@ -1,0 +1,12 @@
+{
+  "name": "ToneMap",
+  "version": "0.1.0",
+  "main": "js/ToneMap.js",
+  "devDependencies": {
+    "ejs-head-modules": "~1.0.5",
+    "ejs-sns-modules": "~0.4.1",
+    "html5shiv": "~3.6.2",
+    "inherits": "~0.0.1",
+    "EventEmitter": "~1.0.0"
+  }
+}
