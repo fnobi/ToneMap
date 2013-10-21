@@ -21,6 +21,8 @@ function init () {
         function startSound (e) {
             e.preventDefault();
 
+            toneMap.play('tap');
+
             loop = setInterval(function () {
                 var playbackRate = Math.max(distance / 50, 0.1);
 
