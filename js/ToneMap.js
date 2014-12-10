@@ -60,7 +60,7 @@
         source.buffer = buffer;
         source.playbackRate.value = opts.playbackRate || 1.0;
         source.connect(context.destination);
-        source.noteOn(0);
+        source.start();
     };
     
 
